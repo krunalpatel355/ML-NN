@@ -37,17 +37,22 @@ class logisticregression(linearregression):
         return self.sigmoid(ans)
 
 
+# X,y data creation
 np.random.seed(0)
 X = 2 * np.random.rand(100, 1)
 y = 4 + 3 * X + np.random.randn(100, 1)
 
-obj = linearregression()
-obj.fit(X,y)
-
-
+# test data creation
 x_pred = 2.2 * np.random.rand(10, 1)
 
-obj1 = logisticregression()
-obj1.fit(X,y)
-ans = obj1.predict(x_pred)
+
+# linear model
+model = linearregression()
+model.fit(X,y)
+
+
+# logistic model
+model1 = logisticregression()
+model1.fit(X,y)
+ans = model.predict(x_pred)
 print(ans)
